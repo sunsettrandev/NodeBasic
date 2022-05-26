@@ -1,0 +1,21 @@
+
+import mysql from "mysql2"
+
+//create the connection to DB
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  database: 'nodejsbasic'
+});
+
+//simple query
+// connection.query(
+//   'SELECT * FROM `users`',
+//   function (err, results, fields) {
+//     console.log(results);
+//   }
+// );
+
+//with placeholder
+
+export default connection;
