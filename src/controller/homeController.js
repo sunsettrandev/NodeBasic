@@ -8,7 +8,7 @@ let getHomePage = (req, res) => {
     'SELECT * FROM `users`',
     function (err, results, fields) {
       data = results;
-      return res.render('test/index.ejs', { dataUser: JSON.stringify(data) });
+      return res.render('index.ejs', { dataUser: data });
     }
   );
 
