@@ -9,10 +9,13 @@ const app = express()
 const port = process.env.PORT || 3000;
 // console.log(port)
 
-//
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+//setup view engine
 configViewEngine(app);
 
-//
+//init web route
 initWebRoute(app);
 
 app.listen(port, () => {
