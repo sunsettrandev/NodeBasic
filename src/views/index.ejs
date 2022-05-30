@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,8 +41,13 @@
           </td>
           <td>
             <button type="button"><a href="/detail/user/<%= dataUser[i].id %>">Details</a></button>
-            <button type="button">Edit</button>
-            <button type="button">Delete</button>
+            <form action="/edit-user/<%= dataUser[i].id %>" method="GET">
+              <button type="submit">Edit</button>
+            </form>
+            <form action="/delete-user" method="POST">
+              <input type="text" name="userId" value="<%= dataUser[i].id %>" hidden />
+              <button type="submit">Delete</button>
+            </form>
           </td>
         </tr>
         <% } %>
@@ -50,7 +56,7 @@
 
   <div class="create_user_container">
     <form action="/create-new-user" method="POST">
-      <div>Create User:</div>
+      <div><strong>Create User:</strong></div>
       <div>
         <label>First Name:</label>
         <input type="text" name="firstName" />

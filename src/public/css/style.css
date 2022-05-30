@@ -64,16 +64,19 @@ a {
 }
 
 /* Customers Form Create User */
-.create_user_container {
+.create_user_container,
+.edit_user_container {
   padding: 15px;
   text-align: center;
 }
 
-.create_user_container label {
+.create_user_container label,
+.edit_user_container label {
   display: block;
 }
 
-.create_user_container .btn_submit {
+.create_user_container .btn_submit,
+.edit_user_container .btn_submit {
   margin-top: 10px;
   cursor: pointer;
 }
