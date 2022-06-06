@@ -80,3 +80,13 @@ a {
   margin-top: 10px;
   cursor: pointer;
 }
+
+/*style uploadfile.ejs*/
+.upload-file-container {
+  padding: 20px;
+}
+
+.btn-save {
+  margin: 20px 0 0 45px;
+  cursor: pointer;
+}
