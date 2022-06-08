@@ -54,31 +54,45 @@ let getUploadFilePage = async (req, res) => {
   return res.render('uploadFile.ejs');
 }
 
-const upload = multer().single('profile_pic');
-
 let handleUploadFile = async (req, res) => {
   //profile-pic  is the name of our file field in the HTML form
-  upload(req, res, function (err) {
-    //req.file contains information of uploaded file
-    //req.body contains information of text fields, if there were any
 
-    if (req.fileValidationError) {
-      return res.send(req.fileValidationError);
-    }
-    else if (!req.file) {
-      return res.send('Please select an image to upload');
-    }
-    else if (err instanceof multer.MulterError) {
-      return res.send(err);
-    }
+  //req.file contains information of uploaded file
+  //req.body contains information of text fields, if there were any
 
-    //display uploaded image for user validation
-    res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500" /><a href="/upload">Upload another image</a>`);
+  if (req.fileValidationError) {
+    return res.send(req.fileValidationError);
+  }
+  else if (!req.file) {
+    return res.send('Please select an image to upload');
+  }
 
-  });
+  //display uploaded image for user validation
+  res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500" /><a href="/upload">Upload another image</a>`);
+}
+
+let handleUploadMutipleFiles = async (req, res) => {
+
+  if (req.fileValidationError) {
+    return res.send(req.fileValidationError);
+  }
+  else if (!req.files) {
+    return res.send('Please select an image to upload');
+  }
+
+  let result = "You have a uploaded these images: <hr />";
+  const files = req.files;
+
+  //loop through all the uploaded images and display them on frontend
+  for (let index = 0; index < files.length; index++) {
+    result += `<img src="/image/${files[index].filename}" width="500" style="margin-right:20px;">`;
+  }
+  result += '<hr /> <a href="/upload">Upload more images </a>';
+  res.send(result);
+
 }
 
 module.exports = {
   getHomePage, getDetailPage, createNewUser, deleteUser, getEditUser, updateUser, getUploadFilePage,
-  handleUploadFile
+  handleUploadFile, handleUploadMutipleFiles
 }

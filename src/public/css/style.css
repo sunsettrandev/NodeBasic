@@ -1,8 +1,10 @@
 body {
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
 }
 
-/*Nav*/
+/* Nav */
 .topnav {
   background-color: #333;
   overflow: hidden;
@@ -27,66 +29,86 @@ body {
   color: white;
 }
 
-/* customers table */
-h2 {
+/* Container */
+
+.container {
   margin: 10px;
 }
 
-.customers {
+.container h1 {
+  color: red;
+}
+
+/* index.ejs - Customers Table */
+
+.container .customers {
   width: 100%;
   border-collapse: collapse;
-  padding: 10px;
 }
 
-.customers td,
-.customers th {
-  padding: 8px;
-}
-
-.customers tr:nth-child(even) {
+.container .customers tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.customers tr:hover {
+.container .customers tr:hover {
   background-color: #ddd;
 }
 
-.customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+.container .customers th {
   text-align: left;
   background-color: #f2f2f2;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+.container .customers td,
+.container .customers th {
+  padding: 8px 12px;
 }
 
-/* Customers Form Create User */
-.create_user_container,
+.container .customers td button {
+  float: left;
+  margin: 0 8px;
+  font-size: 20px;
+}
+
+.container .customers td button a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+/* index.ejs - Customers Form Create User - update.ejs*/
+
+.container .create_user_container,
 .edit_user_container {
   padding: 15px;
   text-align: center;
 }
 
-.create_user_container label,
+.container .create_user_container input,
+.edit_user_container input {
+  font-size: 20px;
+}
+
+.container .create_user_container label,
 .edit_user_container label {
   display: block;
 }
 
-.create_user_container .btn_submit,
+.container .create_user_container .btn_submit,
 .edit_user_container .btn_submit {
   margin-top: 10px;
   cursor: pointer;
+  font-size: 20px;
 }
 
-/*style uploadfile.ejs*/
-.upload-file-container {
-  padding: 20px;
+/* uploadfile.ejs */
+
+.container .upload-file-container {
+  padding: 20px 0;
 }
 
 .btn-save {
-  margin: 20px 0 0 45px;
   cursor: pointer;
+  margin: 20px 0;
+  font-size: 20px;
 }
